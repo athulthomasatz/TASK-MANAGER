@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Data</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+    crossorigin="anonymous"
+  />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(80deg,#0F2027,#203A43,#2C5364);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    th,
+    td {
+      border: 1px solid #000000;
+      padding: 8px;
+      text-align: center;
+    
+      width: 50%;
+    }
+   
+   tr{
+    background-color: white;
+   }
+    
+    tr:hover {
+      background-color: #ddd;
+    }
+    .full-row {
+      text-align: center;
+      font-weight: bold;
+     
+    }
+    .bold {
+      font-weight: bold;
+    }
+    .my-4{
+      color: white;
+    }
+    
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="my-4">Work Schedule</h1>
+    <table class="table table-striped table-hover">
+      <tbody>
+        {{#each everyData}}
+          {{#if (isDate this.[0])}}
+            <tr>
+              <th colspan="2" class="full-row">{{this.[0]}}</th>
+            </tr>
+          {{else}}
+            
+            <tr>
+              {{#if (equals this.[0] "NAME")}}
+                <td class="bold">{{this.[0]}}</td>
+                <td class="bold">{{this.[1]}}</td>
+              {{else if (equals this.[0] "TASK")}}
+                <td class="bold">{{this.[0]}}</td>
+                <td class="bold">{{this.[1]}}</td>
+              {{else}}
+                <td>{{this.[0]}}</td>
+                <td>{{this.[1]}}</td>
+              {{/if}}
+            </tr>
+          {{/if}}
+        {{/each}}
+      </tbody>
+    </table>
+    <a href="/" class="btn btn-secondary">Back to home</a>
+  </div>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
+

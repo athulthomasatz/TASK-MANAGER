@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work-items Scheduler</title>
+    {{!-- <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+    <!-- Optional fallback for browsers not supporting SVG favicons -->
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"> --}}
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    
+    <style>
+      .body {
+        background: linear-gradient(80deg,#0F2027,#203A43,#2C5364);
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+        background-color: transparent;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+      }
+      .head1{
+         color:#1fae8a;
+         padding-top: 20px;
+         
+      }
+      .formclass{
+        margin: 10px;
+        /* background: linear-gradient(40deg,#ff6ec4,#7873f5); */
+        transition: transform .2s ease-out;
+        height:500px ;
+        width: 75%;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        border: 2px solid rgb(255, 255, 255)
+        
+      }
+      .name{
+        padding-bottom: 5px;
+        font-size: larger;
+        font-weight: bolder;
+        
+      }
+      .task,.date,.name{
+        margin-top: 35px;
+        padding-bottom: 5px;
+        font-size: larger;
+        font-weight: bolder;
+        align-items: center;
+        color:#1fae8a;
+        /* background-color: goldenrod; */
+      }
+      .name-input{
+        border-radius: 8px;
+        color: rgb(0, 0, 0);
+        border:1px solid ;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+        height: 37px;
+
+      }
+      .textarea{
+        color: rgb(0, 0, 0);
+        border-radius: 8px;
+        border:1px solid ;
+        box-shadow: 0px 3px 3px rgba(0,0,0,0.4);
+
+      }
+      .datebox{
+        color: rgb(0, 0, 0);
+        border:1px solid;
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+        border-radius: 8px;
+        height: 32px;
+      }
+      .btn1{
+        background-color: rgb(43, 133, 161);
+        height: 35px;
+        width: 144px;
+        text-decoration: none;
+        color: white;
+        border-radius: 5px;
+        margin-top: -4px;
+        text-align: center;
+        align-content: center;
+      }
+
+      
+      .para{
+        text-align: center;
+        margin-top: 6px;
+        font-weight:400;
+      }
+      .footer1{
+        color: white;
+        margin: 10px;
+        margin-top: 50px;
+      }
+
+
+      
+    </style>
+  </head>
+  <body>
+    <div class="body">
+      <h1 class="head1">Work-items Scheduler</h1>
+      <form action="/" method="post" class="formclass">
+        
+          <label class="name" for="name">NAME</label>
+          <input
+           class="name-input"
+            type="text"
+            placeholder="Ex : John Doe"
+            name="name"
+            id="name"
+            required
+          />
+        <br />
+        
+          <label class="task" for="task">TASK</label>
+        
+          <!-- additinal code start -->
+          <textarea
+          class="textarea"
+            id="task"
+            name="task"
+            rows="3"
+            cols="35"
+            placeholder="Ex: Meeting,Testing,Etc"
+            required
+          ></textarea>
+
+          <!--additinal code end  -->
+        
+        <br />
+        
+          <label class="date" for="time">DATE</label>
+          <input class="datebox" type="date" name="date" id="date" placeholder="DD/MM/YYYY" required />
+      
+        <br />
+
+        <button type="submit" onclick="myFunction()" class="btn btn-success">
+          SUBMIT
+        </button>
+      </form>
+      <br>
+      <a class="btn1"
+        href="/allData"
+        class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+      >
+        Get all Schedule
+      </a>
+       <footer class="footer1">
+    <p>&copy; 2024 Task Manager App</p>
+    <p>&trade; All Trade Mark is.....</p>
+  </footer>
+{{!-- box-shadow: 40px 40px 30px rgba(255, 255, 255, 0.4); --}}
+      <!-- <div
+        class="modal fade"
+        id="customModal"
+        tabindex="-1"
+        aria-labelledby="customModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="customModalLabel">Custom Message</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">Adding Successful!</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"
+      ></script>
+      <!-- <script>
+        function myFunction() {
+          // Show Bootstrap modal
+          var myModal = new bootstrap.Modal(
+            document.getElementById("customModal"),
+            {
+              keyboard: false,
+            }
+          );
+          myModal.show();
+        }
+      </script> -->
+    </div>
+  </body>
+</html>
